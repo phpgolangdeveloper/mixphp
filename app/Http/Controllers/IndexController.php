@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Helpers\ResponseHelper;
 use Mix\Http\Message\ServerRequest;
 use Mix\Http\Message\Response;
-
+use Mix\Database\QueryBuilder;
 /**
  * Class IndexController
  * @package App\Http\Controllers
@@ -32,11 +32,9 @@ class IndexController
     public function index(ServerRequest $request, Response $response)
     {
         $content = 'Hello, World!';
-
-        xgo(function() {
-            echo '协程开启了';
-        });
-
+        $db = new QueryBuilder();
+        $data = $db->table('wj_users')->get();
+        var_dump($data);exit;
         return ResponseHelper::html($response, $content);
     }
 
