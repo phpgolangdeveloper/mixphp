@@ -32,6 +32,11 @@ class IndexController
     public function index(ServerRequest $request, Response $response)
     {
         $content = 'Hello, World!';
+
+        xgo(function() {
+            echo '协程开启了';
+        });
+
         return ResponseHelper::html($response, $content);
     }
 
