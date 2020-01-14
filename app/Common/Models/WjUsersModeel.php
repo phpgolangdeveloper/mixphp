@@ -12,6 +12,7 @@ class WjUsersModeel
      * @return mixed
      */
     public function getRowById($id)
+
     {
         $sql = "SELECT * FROM `" . self::TABLE . "` WHERE id = :id";
         $row = RDB::createCommand($sql)->bindParams([

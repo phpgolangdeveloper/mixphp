@@ -32,9 +32,9 @@ class IndexController
     public function index(ServerRequest $request, Response $response)
     {
         $content = 'Hello, World!';
-        $wjUsersModel = new WjUsersModeel();
-        $data = $wjUsersModel->getRowById(1);
-        var_dump($data);exit;
+        $db = context()->get(\Mix\Database\Connection::class);
+        $data = $db->prepare("SELECT * FROM `wj_users` where id = 1")->queryAll();
+        var_dump($data);
         return ResponseHelper::html($response, $content);
     }
 
