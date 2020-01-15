@@ -13,7 +13,9 @@ class TestController
     {
         $content = 'Hello, World!';
 
-        TestService::index();
+        xgo(function() {
+            TestService::index();
+        });
 
         return ResponseHelper::html($response, $content);
     }
