@@ -13,6 +13,7 @@ class TestController
     {
         $content = 'Hello, World!';
 
+        // xgo 开启协程
         xgo(function() {
             TestService::index();
         });
