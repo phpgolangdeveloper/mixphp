@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Helpers\ResponseHelper;
 use App\Http\Service\TestService;
-use App\WebSocket\Helpers\SendHelper;
-use Mix\Http\Message\ServerRequest;
 use Mix\Http\Message\Response;
+use Mix\Http\Message\ServerRequest;
 
 class TestController
 {
@@ -15,7 +14,7 @@ class TestController
         $content = 'Hello, World!';
 
         // xgo 开启协程
-        xgo(function() {
+        xgo(function () {
             TestService::index();
         });
 
@@ -45,9 +44,9 @@ class TestController
         // 响应
         $data = [
             'status' => 0,
-            'data'   => [
+            'data' => [
                 'access_token' => $accessToken,
-                'expire_in'    => 7200,
+                'expire_in' => 7200,
             ],
         ];
         return ResponseHelper::json($response, $data);
@@ -62,9 +61,9 @@ class TestController
     public function webSocketJavaScriptView(ServerRequest $request, Response $response)
     {
         $data = [
-            'id'      => $request->getAttribute('id') ?: 1,
-            'name'    => '小明',
-            'age'     => 18,
+            'id' => $request->getAttribute('id') ?: 1,
+            'name' => '小明',
+            'age' => 18,
             'friends' => ['小红', '小花', '小飞'],
         ];
         return ResponseHelper::view($response, 'test.test', $data);

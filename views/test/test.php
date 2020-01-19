@@ -1,3 +1,6 @@
+<?php
+$this->title = 'Test';
+?>
 <html>
 <head>
     <title>WebSocket</title>
@@ -7,10 +10,10 @@
 <?php
     echo "<pre>";
 print_r($this);
-print_r($this->id);
-print_r($this->name);
-print_r($this->age);
-print_r($this->friends);
+print_r($id);
+print_r($name);
+print_r($age);
+print_r($friends);
 ?>
 
 <script>
