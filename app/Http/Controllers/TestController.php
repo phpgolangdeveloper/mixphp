@@ -6,6 +6,7 @@ use App\Http\Helpers\ResponseHelper;
 use App\Http\Service\TestService;
 use Mix\Http\Message\ServerRequest;
 use Mix\Http\Message\Response;
+use App\Http\Helpers\SendHelper;
 
 class TestController
 {
@@ -21,6 +22,12 @@ class TestController
         return ResponseHelper::html($response, $content);
     }
 
+    /***
+     * 获取token验证
+     * @param ServerRequest $request
+     * @param Response $response
+     * @return Response
+     */
     public function auth(ServerRequest $request, Response $response)
     {
         /* 验证账号密码成功后 */
@@ -44,5 +51,22 @@ class TestController
             ],
         ];
         return ResponseHelper::json($response, $data);
+    }
+
+    /***
+     * 渲染视图
+     * @param ServerRequest $request
+     * @param Response $response
+     * @return mixed
+     */
+    public function webSocketJavaScript(ServerRequest $request, Response $response)
+    {
+        $data = [
+            'id'      => $request->getAttribute('id') ?: 1,
+            'name'    => '小明',
+            'age'     => 18,
+            'friends' => ['小红', '小花', '小飞'],
+        ];
+        return SendHelper::view($response, 'Test.test', $data);
     }
 }
