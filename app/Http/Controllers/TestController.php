@@ -67,6 +67,6 @@ class TestController
             'age'     => 18,
             'friends' => ['小红', '小花', '小飞'],
         ];
-        return ResponseHelper::view($response, 'Test.test', $data);
+        return ResponseHelper::view($response, 'test.test', $data);
     }
 }
