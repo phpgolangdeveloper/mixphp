@@ -59,7 +59,7 @@ class TestController
      * @param Response $response
      * @return mixed
      */
-    public function webSocketJavaScript(ServerRequest $request, Response $response)
+    public function webSocketJavaScriptView(ServerRequest $request, Response $response)
     {
         $data = [
             'id'      => $request->getAttribute('id') ?: 1,
