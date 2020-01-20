@@ -18,7 +18,7 @@ print_r($friends);
 
 <script>
     var webSocket = function () {
-        ws = new WebSocket("ws://39.108.6.204:9501");
+        ws = new WebSocket("ws://39.108.6.204:9502/websocket");
         ws.onopen = function() {
             console.log("连接成功");
         };
